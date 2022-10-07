@@ -9,12 +9,12 @@ def test_fn():
     cwd = os.getcwd()
     fld = "Test_data"
     pdfmerger(cwd, fld)
-    actual_pdf = checks(f"{fld}.pdf")
-    expected_pdf = checks("output.pdf")
+    actual_pdf = checksum(f"{fld}.pdf")
+    expected_pdf = checksum("output.pdf")
     assert actual_pdf == expected_pdf
 
 
-def checks(file):
+def checksum(file):
     md5_hash = hashlib.md5()
     a_file = open(file, "rb")
     content = a_file.read()
